@@ -1,13 +1,10 @@
 # Bandit Level 3 → Level 4
 
-## Challenge
-
+### Challenge
 The level asked us to find the password stored in a hidden file inside the `inhere` directory.
 
-## Commands Used
-
+### Commands Used
 These are the commands I actually tried during the challenge, in order:
-
 - `ls`
 - `cd inhere`
 - `ls a`
@@ -15,11 +12,9 @@ These are the commands I actually tried during the challenge, in order:
 - `cat ./...Hiding-From-You`
 
 **Successful command:**
-
 `cat ./...Hiding-From-You`
 
-## Explanation
-
+### Explanation
 I initially used `ls` to list the contents of my home directory, which showed the `inhere` directory.
 
 I then used `cd inhere` to enter that directory and look for the password file.
@@ -34,8 +29,7 @@ I then ran:
 
 This successfully displayed the password.
 
-## Challenges or Discoveries
-
+### Challenges or Discoveries
 One thing I found interesting was that the filename started with three dots.
 
 Initially, I used `./` because I thought `cat` might interpret the three dots at the beginning of the filename as something special.
@@ -50,12 +44,10 @@ I tested this command after completing the challenge, and it worked.
 
 I learned that `./` was not necessary because the filename did not begin with a hyphen or contain spaces or other characters requiring special handling.
 
-## Password
-
+### Password
 xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq
 
-## What I Learned
-
+### What I Learned
 - I learned that `ls` lists the contents of a directory.
 - I learned that `cd` changes my current directory.
 - I learned that `ls -a` displays hidden files, including files beginning with dots.

@@ -1,7 +1,6 @@
 # Bandit Level 5 → Level 6
 
-## Challenge
-
+### Challenge
 The password for the next level was stored in a file somewhere inside the `inhere` directory. The file had the following properties:
 
 - Human-readable
@@ -10,8 +9,7 @@ The password for the next level was stored in a file somewhere inside the `inher
 
 The goal was to locate the file that matched all three conditions and read its contents to retrieve the password.
 
-## Commands Used
-
+### Commands Used
 - `ls`
 - `ls -l`
 - `cd ..`
@@ -26,15 +24,11 @@ The goal was to locate the file that matched all three conditions and read its c
 - `cat ./inhere/maybehere07/.file2`
 
 **Successful commands:**
-
 `find ./inhere/maybehere* -size 1033c`
-
 `ls -l ./inhere/maybehere07/.file2`
-
 `cat ./inhere/maybehere07/.file2`
 
-## Explanation
-
+### Explanation
 I started by entering the first `maybehere` directory to see what files were inside. I used `ls -l` to examine the file permissions and sizes.
 
 After looking at the permissions, I noticed that only two files did not have execute permission. Since the challenge specified that the correct file was not executable, I focused on those two files.
@@ -71,8 +65,7 @@ Finally, I ran:
 
 This displayed the password for the next level.
 
-## Challenges or Discoveries
-
+### Challenges or Discoveries
 **1.** One of my biggest discoveries was understanding how my current location in the Linux filesystem affects the commands I run.
 
 Initially, I was entering each `maybehere` directory individually to examine its files. However, I realized that navigating back to my home directory made it easier to use relative paths to access multiple directories at once.
@@ -113,12 +106,10 @@ I also discovered that wildcards can be used with different commands, including 
 
 This made it easier to work with multiple directories and files without having to specify each one individually.
 
-## Password
-
+### Password
 pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
 
-## What I Learned
-
+### What I Learned
 This challenge taught me how to search for files more efficiently instead of manually examining every directory.
 
 I learned how to use `find` with the `-size` option to locate files based on their exact size, how wildcards can help work with multiple directories, and how my current directory affects the relative paths I use.

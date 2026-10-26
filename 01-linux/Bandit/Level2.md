@@ -1,11 +1,9 @@
 # Bandit Level 2 → Level 3
 
-## Challenge
-
+### Challenge
 The level asked us to find the password stored in a file named `--spaces in this filename--`, located in the home directory.
 
-## Commands Used
-
+### Commands Used
 These are the commands I actually tried during the challenge, in order:
 
 - `cat '--spaces in this filename--'`
@@ -16,11 +14,9 @@ These are the commands I actually tried during the challenge, in order:
 - `cat ./--spaces\ in\ this\ filename--`
 
 **Successful command:**
-
 `cat ./--spaces\ in\ this\ filename--`
 
-## Explanation
-
+### Explanation
 I initially tried using `cat` with the filename enclosed in single quotes, but it did not work. Although the quotes handled the spaces, the filename started with hyphens, which caused `cat` to interpret it as an option.
 
 The terminal suggested using `--` to indicate the end of command options. However, I mistakenly included `--` inside the quotation marks instead of using it as a separate argument.
@@ -37,8 +33,7 @@ Finally, I ran:
 
 This successfully displayed the password.
 
-## Challenges or Discoveries
-
+### Challenges or Discoveries
 The biggest challenge was figuring out how to read a filename containing both spaces and leading hyphens.
 
 After completing the challenge, I learned that there were other ways I could have solved it.
@@ -52,12 +47,10 @@ Although I did not use these commands during the challenge, I learned that `--` 
 
 I also learned that quotation marks can handle spaces in filenames and that small differences in spacing can change how the shell interprets a command.
 
-## Password
-
+### Password
 7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
 
-## What I Learned
-
+### What I Learned
 - I learned that unquoted or unescaped spaces in filenames cause the shell to split the filename into multiple arguments.
 - I learned that using a backslash (`\`) before a space prevents the shell from treating it as an argument separator.
 - I learned that quotation marks are another way to handle filenames containing spaces.
