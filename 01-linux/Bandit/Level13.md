@@ -7,7 +7,9 @@ The password for Bandit 14 was stored in /etc/bandit_pass/bandit14, but I did no
 
 I needed to figure out how to use the sshkey.private file provided in Bandit 13 to authenticate and log into Bandit 14.
 
-### Commands Used
+## Commands Used
+
+```bash
 ssh bandit13@bandit.labs.overthewire.org -p 2220
 ls
 pwd
@@ -39,6 +41,7 @@ ls -l sshkey.private
 chmod 600 sshkey.private
 ls -l sshkey.private
 ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+```
 
 ### Explanation
 When I first logged into Bandit 13, I ran ls to see what files were available. I found two files: hint and sshkey.private.
