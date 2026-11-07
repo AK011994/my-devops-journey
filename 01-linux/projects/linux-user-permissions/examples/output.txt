@@ -1,0 +1,105 @@
+
+=== Project: Set Up a New User with Specific Permissions ===
+
+=== 1. Create a New User ===
+
+❯ sudo adduser john
+User created successfully.
+
+
+=== 2. Create and Verify the Developers Group ===
+
+❯ sudo addgroup developers
+
+❯ cat /etc/group | grep developers
+developers:x:1004:
+
+
+=== 3. Add John to the Developers Group ===
+
+❯ man usermod
+
+❯ sudo usermod -aG developers john
+
+❯ groups john
+john : john users developers
+
+
+=== 4. Create the Project Directory ===
+
+❯ sudo mkdir /home/john/projects
+
+❯ ls -ld /home/john/projects
+ls: cannot open file '/home/john/projects': Permission denied
+
+❯ sudo ls -ld /home/john/projects
+drwxr-xr-x 2 root root 4096 Oct 31 23:15 /home/john/projects
+
+
+=== 5. Change Directory Ownership ===
+
+❯ sudo chown john /home/john/projects
+
+❯ sudo ls -ld /home/john/projects
+drwxr-xr-x 2 john root 4096 Oct 31 23:15 /home/john/projects
+
+❯ sudo chgrp deveopers /home/john/projects
+chgrp: invalid group: 'deveopers'
+
+❯ sudo chgrp developers /home/john/projects
+
+❯ sudo ls -ld /home/john/projects
+drwxr-xr-x 2 john developers 4096 Oct 31 23:15 /home/john/projects
+
+
+=== 6. Configure Directory Permissions ===
+
+❯ sudo chmod 750 /home/john/projects
+
+❯ sudo ls -ld /home/john/projects
+drwxr-x--- 2 john developers 4096 Oct 31 23:15 /home/john/projects
+
+
+=== 7. Verify John's Access ===
+
+❯ su - john
+
+john@addia:~$ ls
+projects
+
+john@addia:~$ cd projects
+
+john@addia:~/projects$ touch test.txt
+
+john@addia:~/projects$ ls
+test.txt
+
+john@addia:~/projects$ ls -ld test.txt
+-rw-rw-r-- 1 john john 0 Oct 31 23:30 test.txt
+
+john@addia:~/projects$ exit
+logout
+
+
+=== 8. Verify Unauthorized Access Is Denied ===
+
+❯ whoami
+addia
+
+❯ groups addia
+addia : addia adm cdrom sudo dip plugdev users lxd
+
+❯ cd /home/john/projects
+cd: permission denied: /home/john/projects
+
+
+=== Project Result ===
+
+Owner: john
+Group: developers
+Directory permissions: 750 (rwxr-x---)
+
+John can enter the directory and create files.
+Unauthorized user addia cannot enter the directory.
+
+Project configuration completed successfully.
