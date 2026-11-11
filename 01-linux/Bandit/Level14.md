@@ -23,7 +23,8 @@ nc localhost 30000
 - nc localhost 30000 — Connected directly to the local service listening on destination port 30000.
 
 I also consulted the nc manual to understand its command syntax. I considered nmap and SSH options, but did not need them to complete the challenge.
-Explanation
+
+### Explanation
 
 After logging in as Bandit14, I explored the home directory using ls and ls -a. I remembered from the previous level that the current password was stored under /etc/bandit_pass, so I navigated there and read the bandit14 file.
 
